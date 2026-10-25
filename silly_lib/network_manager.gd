@@ -125,10 +125,10 @@ func leave_lobby() -> void:
 	lobby_left.emit()
 
 #region Debug ENet loopback (run two instances with "-- --host" / "-- --join", optionally "--lag=150")
-func _check_debug_args() -> void: #written by Cryptizism
+func _check_debug_args() -> void:
 	var args: PackedStringArray = OS.get_cmdline_user_args()
 	for arg in args:
-		if arg.begins_with("--lag"):
+		if arg.begins_with("--lag="):
 			debug_max_lag_ms = arg.trim_prefix("--lag=").to_int()
 	if args.has("--host"):
 		debug_host()
@@ -166,9 +166,10 @@ func debug_join() -> void: #written by Cryptizism
 	update_peer_id()
 	_start_debug_match()
 
-func _start_debug_match() -> void: #written by Cryptizism
+func _start_debug_match() -> void:
 	Global.player_count = 2
 	Transition.change_scene("res://scenes/game_room.tscn")
+#endregion
 
 func _on_lobby_created(_result: int, _lobby_id: int) -> void:
 	if _result != Steam.RESULT_OK:
