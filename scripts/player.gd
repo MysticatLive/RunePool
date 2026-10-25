@@ -3,7 +3,8 @@ class_name Player
 
 var slot_number: int
 var peer_id: int
-var input: PlayerInput
+var input: PlayerInput # live local input (written by update_local)
+var sim_input: PlayerInput = PlayerInput.new() # what the board reads when simulating online
 var board: Board
 
 func _init(_slot_number: int) -> void:

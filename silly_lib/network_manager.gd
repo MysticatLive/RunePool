@@ -51,12 +51,19 @@ signal start_match()
 const LOBBY_TYPE: Steam.LobbyType = Steam.LobbyType.LOBBY_TYPE_PUBLIC
 const MAX_MEMBERS: int = 4
 const GAME_CODE: String = "sk_runepool"
+const DEBUG_ADDRESS: String = "127.0.0.1"
+const DEBUG_PORT: int = 24565
+const DEBUG_LOBBY_ID: int = -1 #non-zero so the game treats the session as online
 
 var local_peer_id: int = 1
 var peer: SteamMultiplayerPeer
+var debug_peer: ENetMultiplayerPeer
 var current_lobby_id: int = 0
 var lobby_seed: int = 0
+var slot_assignments: PackedInt64Array
 var is_connected_to_server: bool = false
+var debug_max_lag_ms: int = 0
+var debug_lag_rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	Steam.initRelayNetworkAccess()
@@ -69,6 +76,7 @@ func _ready() -> void:
 	multiplayer.connected_to_server.connect(_on_server_connected)
 	multiplayer.connection_failed.connect(_on_server_connection_failed)
 	multiplayer.server_disconnected.connect(_on_server_disconnected)
+	_check_debug_args.call_deferred()
 
 func _process(_delta: float) -> void:
 	Steam.run_callbacks()
@@ -103,13 +111,66 @@ func join_lobby(_lobby_id: int) -> void:
 
 func leave_lobby() -> void:
 	if current_lobby_id != 0:
-		Steam.leaveLobby(current_lobby_id)
+		if current_lobby_id != DEBUG_LOBBY_ID:
+			Steam.leaveLobby(current_lobby_id)
 		current_lobby_id = 0
 	multiplayer.multiplayer_peer = null
 	if peer:
 		peer.close()
 	peer = null
+	if debug_peer:
+		debug_peer.close()
+	debug_peer = null
+	slot_assignments.clear()
 	lobby_left.emit()
+
+#region Debug ENet loopback (run two instances with "-- --host" / "-- --join", optionally "--lag=150")
+func _check_debug_args() -> void:
+	var args: PackedStringArray = OS.get_cmdline_user_args()
+	for arg in args:
+		if arg.begins_with("--lag="):
+			debug_max_lag_ms = arg.trim_prefix("--lag=").to_int()
+	if args.has("--host"):
+		debug_host()
+	elif args.has("--join"):
+		debug_join()
+
+func debug_host() -> void:
+	leave_lobby()
+	debug_peer = ENetMultiplayerPeer.new()
+	if debug_peer.create_server(DEBUG_PORT, 1) != OK:
+		push_warning("Failed to create debug ENet host.")
+		return
+	current_lobby_id = DEBUG_LOBBY_ID
+	is_connected_to_server = true
+	multiplayer.multiplayer_peer = debug_peer
+	update_peer_id()
+	print("Debug host listening on port %d." % DEBUG_PORT)
+	await server_peer_connected
+	_start_debug_match()
+
+func debug_join() -> void:
+	#host instance may not be up yet, keep retrying until connected
+	while true:
+		leave_lobby()
+		debug_peer = ENetMultiplayerPeer.new()
+		if debug_peer.create_client(DEBUG_ADDRESS, DEBUG_PORT) != OK:
+			push_warning("Failed to create debug ENet client.")
+			return
+		current_lobby_id = DEBUG_LOBBY_ID
+		multiplayer.multiplayer_peer = debug_peer
+		while debug_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTING:
+			await get_tree().process_frame
+		if debug_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED:
+			break
+		await get_tree().create_timer(0.5).timeout
+	update_peer_id()
+	_start_debug_match()
+
+func _start_debug_match() -> void:
+	Global.player_count = 2
+	Transition.change_scene("res://scenes/game_room.tscn")
+#endregion
 
 func _on_lobby_created(_result: int, _lobby_id: int) -> void:
 	if _result != Steam.RESULT_OK:
@@ -234,9 +295,12 @@ func send_slot_assignments(assignments: PackedInt64Array) -> void:
 
 @rpc("any_peer", "reliable")
 func receive_slot_assignments(assignments: PackedInt64Array) -> void:
+	slot_assignments = assignments
 	slot_assignments_received.emit(assignments)
 
 func send_input(peer_id: int, frame: int, packet: Dictionary) -> void:
+	if debug_max_lag_ms > 0:
+		await get_tree().create_timer(debug_lag_rng.randf_range(0, debug_max_lag_ms) / 1000.0).timeout
 	receive_input.rpc_id(peer_id, frame, packet)
 
 @rpc("any_peer", "reliable")

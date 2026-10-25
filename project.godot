@@ -25,7 +25,7 @@ buses/default_bus_layout="uid://dwi7ro6hxqo72"
 
 [autoload]
 
-Global="*res://scripts/Global.gd"
+Global="*res://scripts/global.gd"
 Controls="*uid://ogi7p0au6aa"
 Settings="*uid://bbsjublrboqyk"
 Transition="*uid://dhbdjefntl0pt"
