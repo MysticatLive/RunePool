@@ -631,11 +631,22 @@ func resolve_board() -> void:
 	state = State.VICTORY
 	_on_game_end()
 
-func get_hash() -> int:
-	var _hash := 0
-	_hash = _hash * 31 + runes_remaining
-	_hash = _hash * 31 + active_cluster.position.x
-	_hash = _hash * 31 + active_cluster.position.y
-	for cell in grid:
-		_hash = _hash * 31 + cell[0] + (cell[0] * 100)
-	return _hash
+func get_hash() -> int: #written by Cryptizism
+	var state_values: Array = [state, rng.state, turn_number, runes_remaining, incoming_gems_waiting]
+	if is_instance_valid(active_cluster):
+		state_values.append_array([active_cluster.shape_id, active_cluster.pivot_cell, active_cluster.current_rotation])
+	if is_instance_valid(character):
+		state_values.append(character.hp)
+	for column in grid:
+		for cell_object in column:
+			if !is_instance_valid(cell_object):
+				state_values.append("")
+			elif cell_object is Rune:
+				state_values.append("R" + cell_object.color)
+			elif cell_object is Gem:
+				state_values.append("G" + cell_object.color)
+			elif cell_object is Brick:
+				state_values.append("B")
+			else:
+				state_values.append("?")
+	return hash(state_values)

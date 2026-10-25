@@ -6,9 +6,11 @@ var state: State = State.PAUSED
 @onready var layer_bg: TileMapLayer = $"../LayerBG"
 
 const BOARD_SCENE: PackedScene = preload("res://scenes/board.tscn")
+const LEVEL_DATA: Resource = preload("res://scripts/levels.gd")
 const TIMEOUT_TIME: float = 3.0
 const INPUT_DELAY_FRAMES: int = 10
 const LOCKSTEP_DELTA: float = 1.0 / 60.0
+const CHECKSUM_INTERVAL_FRAMES: int = 60
 
 var generated_seed: int = 0
 var slot_assignments: PackedInt64Array
@@ -32,6 +34,10 @@ func _ready() -> void:
 func _new_game(level_id: String) -> void:
 	_reset()
 	await _set_lobby_seed()
+	if level_id == "random":
+		var level_rng: RandomNumberGenerator = RandomNumberGenerator.new()
+		level_rng.seed = generated_seed
+		level_id = LEVEL_DATA.get_random_level_name(level_rng)
 	for i in range(Global.player_count):
 		_create_board(level_id, i)
 	await _set_slot_assignments()
@@ -131,22 +137,34 @@ func _simulate_frame() -> void:
 		var player = players[0]
 		player.board.input = player.input
 		player.board.tick(LOCKSTEP_DELTA)
+		player.input.clear_one_shots()
 	else:
 		for player in players:
-			if !player.is_local() and player_input_packets_by_frame.has(current_frame) and player_input_packets_by_frame[current_frame].has(player.slot_number):
-				player.input.update_network(player_input_packets_by_frame[current_frame][player.slot_number])
-			player.board.input = player.input
+			if _is_online_multiplayer():
+				player.sim_input.update_network(player_input_packets_by_frame[current_frame][player.slot_number])
+				player.board.input = player.sim_input
+			else:
+				player.board.input = player.input
 			player.board.tick(LOCKSTEP_DELTA)
-			if player.is_local():
+			if !_is_online_multiplayer() and player.is_local():
 				player.input.clear_one_shots()
+		if _is_online_multiplayer() and OS.is_debug_build() and current_frame % CHECKSUM_INTERVAL_FRAMES == 0:
+			_print_checksum()
 	player_input_packets_by_frame.erase(current_frame)
 	current_frame += 1
+
+func _print_checksum() -> void: #written by Cryptizism
+	var hashes: Array[int] = []
+	for player in players:
+		hashes.append(player.board.get_hash())
+	print("CHECKSUM frame=%d hashes=%s" % [current_frame, hashes])
 
 func _update_local_input() -> void:
 	for player in players:
 		if !player.is_local():
 			continue
-		player.input.update_local(player.slot_number + 1)
+		var controls_id: int = 0 if _is_online_multiplayer() else player.slot_number
+		player.input.update_local(controls_id)
 		_on_local_input(player)
 
 func _on_local_input(player: Player) -> void:
@@ -157,6 +175,8 @@ func _on_local_input(player: Player) -> void:
 		if player_input_packets_by_frame[frame].has(player.slot_number):
 			continue
 		var packet: Dictionary = player.input.to_packet()
+		if _is_online_multiplayer():
+			player.input.clear_one_shots()
 		player_input_packets_by_frame[frame][player.slot_number] = packet
 		if _is_online_multiplayer():
 			for opponent in players:
@@ -211,7 +231,9 @@ func _set_lobby_seed() -> void:
 func _set_slot_assignments() -> void:
 	slot_assignments.clear()
 	if !NetworkManager.is_host():
-		await NetworkManager.slot_assignments_received
+		if NetworkManager.slot_assignments.is_empty():
+			await NetworkManager.slot_assignments_received
+		_on_slot_assignments_received(NetworkManager.slot_assignments)
 		return
 	slot_assignments.append(multiplayer.get_unique_id()) #Host
 	if _is_local_multiplayer():

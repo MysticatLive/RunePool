@@ -4,6 +4,7 @@ class_name Player
 var slot_number: int
 var peer_id: int
 var input: PlayerInput
+var sim_input: PlayerInput = PlayerInput.new()
 var board: Board
 
 func _init(_slot_number: int) -> void:

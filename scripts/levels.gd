@@ -122,10 +122,9 @@ const LEVEL_LAYOUTS = {
 		"..........",
 	],
 }
-	
-static func get_random_level_name() -> String:
-	var levels = LEVEL_LAYOUTS.keys()
-	var chosen = levels[randi() % levels.size() - 1] #avoid "random" in last slot
-	if chosen.is_empty():
-		chosen = "classic"
-	return chosen
+
+static func get_random_level_name(rng: RandomNumberGenerator = null) -> String:
+	var levels: Array = LEVEL_LAYOUTS.keys()
+	levels.erase("random") #"random" is not a real level, just how this can be selected.
+	var index: int = rng.randi_range(0, levels.size() - 1) if rng else randi() % levels.size()
+	return levels[index]
