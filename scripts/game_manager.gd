@@ -180,12 +180,7 @@ func _print_checksum() -> void: #written by Cryptizism
 	var hashes: Array[int] = []
 	for player in players:
 		hashes.append(player.board.get_hash())
-	var matches: bool = true
-	for _hash in hashes:
-		if _hash != hashes[0]:
-			matches = false
-			break
-	print("CHECKSUM frame=%d hashes=%s matches=%s" % [current_frame, hashes, matches])
+	print("LOCAL CHECKSUM frame=%d hashes=%s" % [current_frame, hashes])
 
 func _update_local_input() -> void:
 	for player in players:
