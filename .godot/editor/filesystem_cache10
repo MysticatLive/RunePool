@@ -1,5 +1,5 @@
 6d3b77f294a95ad2bb592a87da89201d
-::res://::1792946400
+::res://::1793208889
 default_bus_layout.tres::AudioBusLayout::8721905718978672675::1784482504::0::1::::<><><>0<>0<><>::
 export_presets.cfg::TextFile::-1::1783979152::0::1::::<><><>0<>0<><>::
 jump_component.tscn::PackedScene::2057256451395030676::1784576909::0::1::::<><><>0<>0<><>::uid://b1kycmv6if7bw::::res://silly_lib/jump_component_2d.gd
@@ -29,32 +29,32 @@ updates.gd::GDScript::4450020931874397632::1785275941::0::1::::<>MarginContainer
 ::res://addons/godotsteam/linuxarm64/::1785275941
 ::res://addons/godotsteam/osx/::1792701557
 ::res://addons/godotsteam/win32/::1785275941
-::res://addons/godotsteam/win64/::1792946398
-::res://animations/::1792946121
+::res://addons/godotsteam/win64/::1793208885
+::res://animations/::1792946656
 bobo.tres::SpriteFrames::8898653852532744455::1789417676::0::1::::<><><>0<>0<><>::uid://d3fws4rcyih8e::::res://sprites/characters/bobo.png
 dragon.tres::SpriteFrames::2645744775835610832::1789336680::0::1::::<><><>0<>0<><>::uid://cly0uopxv7d4h::::res://sprites/characters/dragon.png
 error.tres::SpriteFrames::5861256959052422494::1783973447::0::1::::<><><>0<>0<><>::uid://cqor6ohosmjjg::::res://sprites/characters/error.png
 feline.tres::SpriteFrames::3083841322928558708::1789422472::0::1::::<><><>0<>0<><>::uid://i8lsy0rkusb6::::res://sprites/characters/feline.png
-ghost.tres::SpriteFrames::7746171633517335565::1792946121::0::1::::<><><>0<>0<><>::uid://drqlrktqdn0ci::::res://sprites/characters/ghost_idle.png
+ghost.tres::SpriteFrames::7746171633517335565::1792946656::0::1::::<><><>0<>0<><>::uid://drqlrktqdn0ci::::res://sprites/characters/ghost_idle.png
 goblin.tres::SpriteFrames::6802730440520599731::1789336680::0::1::::<><><>0<>0<><>::uid://dx2fx8sigj705::::res://sprites/characters/goblin.png
 golem.tres::SpriteFrames::7484491411283991896::1789414602::0::1::::<><><>0<>0<><>::uid://b5ff1is0bc3fe::::res://sprites/characters/golem.png
 mimic.tres::SpriteFrames::2817700895315585510::1789415571::0::1::::<><><>0<>0<><>::uid://b1fei760pvirr::::res://sprites/characters/mimic.png
 mummy.tres::SpriteFrames::16582360542577169::1789336653::0::1::::<><><>0<>0<><>::uid://cjpdyrdwl5q7y::::res://sprites/characters/mummy.png
-rune_blue.tres::SpriteFrames::5959767998782235581::1792946121::0::1::::<><><>0<>0<><>::uid://c7ad5akrrulbi::::res://sprites/game/gems/rune_blue.png
-rune_green.tres::SpriteFrames::8286108362163015045::1792946121::0::1::::<><><>0<>0<><>::uid://cff2pxs6k3ira::::res://sprites/game/gems/rune_green.png
-rune_red.tres::SpriteFrames::8215753486373451005::1792946121::0::1::::<><><>0<>0<><>::uid://cucj5cdixsehh::::res://sprites/game/gems/rune_red.png
-rune_yellow.tres::SpriteFrames::3557369369347194588::1792946121::0::1::::<><><>0<>0<><>::uid://dl285vfifha53::::res://sprites/game/gems/rune_yellow.png
-turtle.tres::SpriteFrames::9103939136523020276::1792946121::0::1::::<><><>0<>0<><>::uid://n82lxsh1a24w::::res://sprites/characters/turtle_idle.png
+rune_blue.tres::SpriteFrames::5959767998782235581::1792946656::0::1::::<><><>0<>0<><>::uid://c7ad5akrrulbi::::res://sprites/game/gems/rune_blue.png
+rune_green.tres::SpriteFrames::8286108362163015045::1792946656::0::1::::<><><>0<>0<><>::uid://cff2pxs6k3ira::::res://sprites/game/gems/rune_green.png
+rune_red.tres::SpriteFrames::8215753486373451005::1792946656::0::1::::<><><>0<>0<><>::uid://cucj5cdixsehh::::res://sprites/game/gems/rune_red.png
+rune_yellow.tres::SpriteFrames::3557369369347194588::1792946656::0::1::::<><><>0<>0<><>::uid://dl285vfifha53::::res://sprites/game/gems/rune_yellow.png
+turtle.tres::SpriteFrames::9103939136523020276::1792946656::0::1::::<><><>0<>0<><>::uid://n82lxsh1a24w::::res://sprites/characters/turtle_idle.png
 wizard.tres::SpriteFrames::1280507965448810973::1789422472::0::1::::<><><>0<>0<><>::uid://mtucqekphqrf::::res://sprites/characters/wizard.png
 ::res://fonts/::1785425429
 Runepool Pixel.ttf::FontFile::4244890995999353999::1785425429::1785425429::1::::<><><>0<>0<>0e6e264159fe33b84818d13bcf606838<>res://.godot/imported/Runepool Pixel.ttf-785cbf0a5ffd59f0ab30b26ff6784453.fontdata::
-::res://scenes/::1792946365
+::res://scenes/::1792946656
 board.tscn::PackedScene::7348757173140823529::1782062128::0::1::::<><><>0<>0<><>::uid://bhos1xnpban5x::::res://scripts/board.gd<>uid://cw7dx5eu5q1s0::::res://sprites/ui/bg_board_10x13.png<>uid://b5ki7e1lxlloc::::res://sprites/ui/bg_cluster_preview.png
 brick.tscn::PackedScene::5553467940364482129::1780624745::0::1::::<><><>0<>0<><>::uid://gn3oowoke0ms::::res://sprites/ui/brick.png<>uid://yyckoa51x0u3::::res://scripts/brick.gd
 character.tscn::PackedScene::1781265055285379270::1785294207::0::1::::<><><>0<>0<><>::uid://cxmlguxr8jd0w::::res://sprites/ui/bg_character.png<>uid://bw0styvr88gwc::::res://scripts/character.gd<>uid://uuqso3841tuq::::res://sprites/game/health_empty.png<>uid://bkp82r02rfi7m::::res://sprites/game/health_full.png<>uid://bu1ij5gm8t32c::::res://themes/text_8.tres<>uid://bifn3kdjsf7wn::::res://scenes/sprite_label.tscn<>uid://b3jjumb2hd5l5::::res://sprites/sword.png
 damage_text.tscn::PackedScene::5176339528520447527::1785294207::0::1::::<><><>0<>0<><>::uid://bu1ij5gm8t32c::::res://themes/text_8.tres<>uid://ci6n5pnfx4dr3::::res://scripts/damage_text.gd
 floating_character.tscn::PackedScene::6546298192688647260::1785294207::0::1::::<><><>0<>0<><>::uid://cxvjdo36kpq87::::res://scripts/floating_character.gd<>uid://bu1ij5gm8t32c::::res://themes/text_8.tres
-game_room.tscn::PackedScene::5345713011752407441::1792946365::0::1::::<><><>0<>0<><>::uid://bpfp32dm1bc7t::::res://tilesets/ui.tres<>uid://dwli7dbw3elyk::::res://scripts/tile_layer_scroll.gd<>uid://cu3m4ebkbuisy::::res://scripts/game_manager.gd
+game_room.tscn::PackedScene::5345713011752407441::1792946656::0::1::::<><><>0<>0<><>::uid://bpfp32dm1bc7t::::res://tilesets/ui.tres<>uid://dwli7dbw3elyk::::res://scripts/tile_layer_scroll.gd<>uid://cu3m4ebkbuisy::::res://scripts/game_manager.gd
 gem.tscn::PackedScene::4265392362968255407::1780623732::0::1::::<><><>0<>0<><>::uid://bm0iq37ov8u0m::::res://sprites/game/red.png<>uid://capej5uaeq3yo::::res://scripts/gem.gd
 gem_cluster.tscn::PackedScene::963712898817338270::1781279879::0::1::::<><><>0<>0<><>::uid://dfhu03giib1lj::::res://scripts/gem_cluster.gd
 particle.tscn::PackedScene::8249776620566035803::1781459136::0::1::::<><><>0<>0<><>::uid://bul7qdtap85bh::::res://scripts/particle.gd
@@ -84,7 +84,7 @@ player_menu.tscn::PackedScene::7519378734479694463::1785516413::0::1::::<><><>0<
 player_settings.gd::GDScript::1357258553287470863::1788137034::0::1::::PlayerSettingsMenu<>VBoxContainer<><>0<>0<><>::
 player_settings_menu.tscn::PackedScene::2453565560405872550::1787507906::0::1::::<><><>0<>0<><>::uid://tlp35xln5owl::::res://scenes/menus/player_settings.gd<>uid://bu1ij5gm8t32c::::res://themes/text_8.tres<>uid://bvyp88k3cskdn::::res://themes/yellow_theme.tres<>uid://bnx4bu1m74yek::::res://scripts/ui_hslider.gd<>uid://da0solgm3g0wg::::res://themes/text_6.tres<>uid://bqva0rge5itgb::::res://scripts/ui_button.gd<>uid://n82lxsh1a24w::::res://sprites/characters/turtle_idle.png
 settings_menu.tscn::PackedScene::5527194903270601043::1785623428::0::1::::<><><>0<>0<><>::uid://gddegmnma88p::::res://tilesets/game.tres<>uid://cfyysy66ql03o::::res://scripts/settings_menu.gd<>uid://dwli7dbw3elyk::::res://scripts/tile_layer_scroll.gd<>uid://jiywn80kpn3r::::res://themes/green_theme.tres<>uid://c7nc78y77nwy1::::res://scenes/setting_toggle.tscn<>uid://b2ywhv34ux4p::::res://scenes/setting_slider.tscn<>uid://baa8drcd32m0s::::res://scenes/setting_keybind.tscn<>uid://covpmch4eumrq::::res://scenes/settings_button.tscn<>uid://bvyp88k3cskdn::::res://themes/yellow_theme.tres<>uid://bqva0rge5itgb::::res://scripts/ui_button.gd<>uid://iqwg5jjhcii4::::res://themes/red_theme.tres
-::res://scripts/::1792946390
+::res://scripts/::1792946400
 battle_menu.gd::GDScript::4797954887113598647::1785514071::0::1::::<>Control<><>0<>0<><>::
 board.gd::GDScript::2907784443029882743::1792945567::0::1::::Board<>Node2D<><>0<>0<><>::
 brick.gd::GDScript::1734217342060436800::1780623726::0::1::::Brick<>CellObject<><>0<>0<><>::
@@ -204,22 +204,22 @@ logo.png::CompressedTexture2D::1928091996913244419::1782061791::1782243771::1:::
 scroll_bg.png::CompressedTexture2D::7290193163315909178::1782252834::1782252835::1::::<><><>0<>0<>af83644ffeb143487423bed4fce058e4<>res://.godot/imported/scroll_bg.png-fc9ae66be81ab2e15b3de8a5d1dd6279.ctex::
 slider.png::CompressedTexture2D::5781947079182938067::1782243552::1782243771::1::::<><><>0<>0<>0ae1fe6acf708ebe0cf1a8a263ea3614<>res://.godot/imported/slider.png-98d0f8314a869037443fde0fc2f19b53.ctex::
 ui_tileset.png::CompressedTexture2D::1406659965001563357::1781280035::1782243801::1::::<><><>0<>0<>6e99f5f944637151d355d2c1f7a8acac<>res://.godot/imported/ui_tileset.png-092a246aabf394737e8d5d6789a0b3ee.ctex::
-::res://themes/::1792946121
+::res://themes/::1792946656
 blue_button.tres::StyleBoxTexture::7776700387931944007::1782252198::0::1::::<><><>0<>0<><>::uid://letll1qs32yi::::res://sprites/ui/button_blue.png
 blue_button_highlight.tres::StyleBoxTexture::292183136273741737::1782252198::0::1::::<><><>0<>0<><>::uid://cuumulvdmjngd::::res://sprites/ui/button_blue_highlight.png
-blue_theme.tres::Theme::7378862656718875289::1792946121::0::1::::<><><>0<>0<><>::uid://b1qiy8dqspxkh::::res://fonts/Runepool Pixel.ttf<>uid://efshi4837idd::::res://themes/blue_button_highlight.tres<>uid://di2deb2abljlf::::res://themes/blue_button.tres<>uid://c7ad5akrrulbi::::res://sprites/game/gems/rune_blue.png<>uid://cqqsfpo8drik::::res://sprites/ui/check_on.png<>uid://c8cmeju0hee7d::::res://sprites/ui/check_off.png<>uid://cd6ijie0utjfp::::res://sprites/ui/check_on_disabled.png<>uid://bmnq5uy3gaa6e::::res://sprites/game/gems/white.png<>uid://ce76nitq6i3dw::::res://sprites/ui/hslider_tick.png<>uid://com23aeniysud::::res://sprites/ui/slider.png<>uid://cx6rflew1sndy::::res://sprites/ui/check_off_disabled.png
+blue_theme.tres::Theme::7378862656718875289::1792946656::0::1::::<><><>0<>0<><>::uid://b1qiy8dqspxkh::::res://fonts/Runepool Pixel.ttf<>uid://efshi4837idd::::res://themes/blue_button_highlight.tres<>uid://di2deb2abljlf::::res://themes/blue_button.tres<>uid://c7ad5akrrulbi::::res://sprites/game/gems/rune_blue.png<>uid://cqqsfpo8drik::::res://sprites/ui/check_on.png<>uid://c8cmeju0hee7d::::res://sprites/ui/check_off.png<>uid://cd6ijie0utjfp::::res://sprites/ui/check_on_disabled.png<>uid://bmnq5uy3gaa6e::::res://sprites/game/gems/white.png<>uid://ce76nitq6i3dw::::res://sprites/ui/hslider_tick.png<>uid://com23aeniysud::::res://sprites/ui/slider.png<>uid://cx6rflew1sndy::::res://sprites/ui/check_off_disabled.png
 green_button.tres::StyleBoxTexture::3704809509261558977::1782252198::0::1::::<><><>0<>0<><>::uid://b4xqq5afgyqki::::res://sprites/ui/button_green.png
 green_button_highlight.tres::StyleBoxTexture::1768064413978206018::1782252198::0::1::::<><><>0<>0<><>::uid://cbac56xsc7ayr::::res://sprites/ui/button_green_highlight.png
-green_theme.tres::Theme::649711844999024629::1792946121::0::1::::<><><>0<>0<><>::uid://b1qiy8dqspxkh::::res://fonts/Runepool Pixel.ttf<>uid://0gp06sqe7mvi::::res://themes/green_button_highlight.tres<>uid://bs1vw3cji77ir::::res://themes/green_button.tres<>uid://cqqsfpo8drik::::res://sprites/ui/check_on.png<>uid://cff2pxs6k3ira::::res://sprites/game/gems/rune_green.png<>uid://cd6ijie0utjfp::::res://sprites/ui/check_on_disabled.png<>uid://bmnq5uy3gaa6e::::res://sprites/game/gems/white.png<>uid://c8cmeju0hee7d::::res://sprites/ui/check_off.png<>uid://ce76nitq6i3dw::::res://sprites/ui/hslider_tick.png<>uid://cx6rflew1sndy::::res://sprites/ui/check_off_disabled.png<>uid://cfhl66k887hpo::::res://sprites/ui/button_red.png<>uid://dieibopac0umn::::res://sprites/ui/button_yellow.png<>uid://letll1qs32yi::::res://sprites/ui/button_blue.png<>uid://com23aeniysud::::res://sprites/ui/slider.png<>uid://b2sy4qkvt4354::::res://sprites/ui/button_yellow_highlight.png<>uid://cbac56xsc7ayr::::res://sprites/ui/button_green_highlight.png<>uid://db4oofh3lejhy::::res://sprites/ui/scroll_bg.png
-other_player_theme.tres::Theme::2716074381613164146::1792946121::0::1::::<><><>0<>0<><>::uid://b1qiy8dqspxkh::::res://fonts/Runepool Pixel.ttf
+green_theme.tres::Theme::649711844999024629::1792946656::0::1::::<><><>0<>0<><>::uid://b1qiy8dqspxkh::::res://fonts/Runepool Pixel.ttf<>uid://0gp06sqe7mvi::::res://themes/green_button_highlight.tres<>uid://bs1vw3cji77ir::::res://themes/green_button.tres<>uid://cqqsfpo8drik::::res://sprites/ui/check_on.png<>uid://cff2pxs6k3ira::::res://sprites/game/gems/rune_green.png<>uid://cd6ijie0utjfp::::res://sprites/ui/check_on_disabled.png<>uid://bmnq5uy3gaa6e::::res://sprites/game/gems/white.png<>uid://c8cmeju0hee7d::::res://sprites/ui/check_off.png<>uid://ce76nitq6i3dw::::res://sprites/ui/hslider_tick.png<>uid://cx6rflew1sndy::::res://sprites/ui/check_off_disabled.png<>uid://cfhl66k887hpo::::res://sprites/ui/button_red.png<>uid://dieibopac0umn::::res://sprites/ui/button_yellow.png<>uid://letll1qs32yi::::res://sprites/ui/button_blue.png<>uid://com23aeniysud::::res://sprites/ui/slider.png<>uid://b2sy4qkvt4354::::res://sprites/ui/button_yellow_highlight.png<>uid://cbac56xsc7ayr::::res://sprites/ui/button_green_highlight.png<>uid://db4oofh3lejhy::::res://sprites/ui/scroll_bg.png
+other_player_theme.tres::Theme::2716074381613164146::1792946656::0::1::::<><><>0<>0<><>::uid://b1qiy8dqspxkh::::res://fonts/Runepool Pixel.ttf
 red_button.tres::StyleBoxTexture::884349065107868148::1782252198::0::1::::<><><>0<>0<><>::uid://cfhl66k887hpo::::res://sprites/ui/button_red.png
 red_button_highlight.tres::StyleBoxTexture::3481990830142403459::1782252198::0::1::::<><><>0<>0<><>::uid://bau524w7hpplo::::res://sprites/ui/button_red_highlight.png
-red_theme.tres::Theme::595888871795612461::1792946121::0::1::::<><><>0<>0<><>::uid://b1qiy8dqspxkh::::res://fonts/Runepool Pixel.ttf<>uid://bpux46tibufpb::::res://themes/red_button_highlight.tres<>uid://cfhl66k887hpo::::res://sprites/ui/button_red.png<>uid://mundnqmmxpjo::::res://themes/red_button.tres<>uid://cucj5cdixsehh::::res://sprites/game/gems/rune_red.png<>uid://bmnq5uy3gaa6e::::res://sprites/game/gems/white.png<>uid://ce76nitq6i3dw::::res://sprites/ui/hslider_tick.png<>uid://com23aeniysud::::res://sprites/ui/slider.png
-text_6.tres::LabelSettings::7211989989523848518::1792946121::0::1::::<><><>0<>0<><>::uid://b1qiy8dqspxkh::::res://fonts/Runepool Pixel.ttf
-text_8.tres::LabelSettings::3844374771706013744::1792946121::0::1::::<><><>0<>0<><>::uid://b1qiy8dqspxkh::::res://fonts/Runepool Pixel.ttf
+red_theme.tres::Theme::595888871795612461::1792946656::0::1::::<><><>0<>0<><>::uid://b1qiy8dqspxkh::::res://fonts/Runepool Pixel.ttf<>uid://bpux46tibufpb::::res://themes/red_button_highlight.tres<>uid://cfhl66k887hpo::::res://sprites/ui/button_red.png<>uid://mundnqmmxpjo::::res://themes/red_button.tres<>uid://cucj5cdixsehh::::res://sprites/game/gems/rune_red.png<>uid://bmnq5uy3gaa6e::::res://sprites/game/gems/white.png<>uid://ce76nitq6i3dw::::res://sprites/ui/hslider_tick.png<>uid://com23aeniysud::::res://sprites/ui/slider.png
+text_6.tres::LabelSettings::7211989989523848518::1792946656::0::1::::<><><>0<>0<><>::uid://b1qiy8dqspxkh::::res://fonts/Runepool Pixel.ttf
+text_8.tres::LabelSettings::3844374771706013744::1792946656::0::1::::<><><>0<>0<><>::uid://b1qiy8dqspxkh::::res://fonts/Runepool Pixel.ttf
 yellow_button.tres::StyleBoxTexture::3802059851609165970::1782252198::0::1::::<><><>0<>0<><>::uid://dieibopac0umn::::res://sprites/ui/button_yellow.png
 yellow_button_highlight.tres::StyleBoxTexture::4184828004412100600::1782252198::0::1::::<><><>0<>0<><>::uid://b2sy4qkvt4354::::res://sprites/ui/button_yellow_highlight.png
-yellow_theme.tres::Theme::3910902902273756875::1792946121::0::1::::<><><>0<>0<><>::uid://b1qiy8dqspxkh::::res://fonts/Runepool Pixel.ttf<>uid://b0vfrgy2w4oma::::res://themes/yellow_button_highlight.tres<>uid://cfnn6vlndboce::::res://sprites/game/gems/yellow.png<>uid://buf0mubauol43::::res://themes/yellow_button.tres<>uid://bm0iq37ov8u0m::::res://sprites/game/gems/red.png<>uid://bmnq5uy3gaa6e::::res://sprites/game/gems/white.png<>uid://ce76nitq6i3dw::::res://sprites/ui/hslider_tick.png<>uid://com23aeniysud::::res://sprites/ui/slider.png
-::res://tilesets/::1792946121
-game.tres::TileSet::427515823528782293::1792946121::0::1::::<><><>0<>0<><>::uid://cqxeshxq85gx2::::res://sprites/ui/game_area_tileset.png
-ui.tres::TileSet::3450537407499599427::1792946121::0::1::::<><><>0<>0<><>::uid://ubnqpvm6px38::::res://sprites/ui/ui_tileset.png
+yellow_theme.tres::Theme::3910902902273756875::1792946656::0::1::::<><><>0<>0<><>::uid://b1qiy8dqspxkh::::res://fonts/Runepool Pixel.ttf<>uid://b0vfrgy2w4oma::::res://themes/yellow_button_highlight.tres<>uid://cfnn6vlndboce::::res://sprites/game/gems/yellow.png<>uid://buf0mubauol43::::res://themes/yellow_button.tres<>uid://bm0iq37ov8u0m::::res://sprites/game/gems/red.png<>uid://bmnq5uy3gaa6e::::res://sprites/game/gems/white.png<>uid://ce76nitq6i3dw::::res://sprites/ui/hslider_tick.png<>uid://com23aeniysud::::res://sprites/ui/slider.png
+::res://tilesets/::1792946656
+game.tres::TileSet::427515823528782293::1792946656::0::1::::<><><>0<>0<><>::uid://cqxeshxq85gx2::::res://sprites/ui/game_area_tileset.png
+ui.tres::TileSet::3450537407499599427::1792946656::0::1::::<><><>0<>0<><>::uid://ubnqpvm6px38::::res://sprites/ui/ui_tileset.png
