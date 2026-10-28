@@ -171,9 +171,6 @@ func _simulate_frame() -> void:
 				player.sim_input.update_network(packet)
 				player.board.input = player.sim_input
 			player.board.tick(LOCKSTEP_DELTA)
-			# online one-shots are cleared when packed (see _on_local_input), not here.
-			#if !_is_online_multiplayer() and player.is_local():
-			#	player.input.clear_one_shots()
 		if _is_online_multiplayer() and OS.is_debug_build() and current_frame % CHECKSUM_INTERVAL_FRAMES == 0:
 			_print_checksum()
 	player_input_packets_by_frame.erase(current_frame)
