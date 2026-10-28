@@ -70,6 +70,8 @@ func tick(delta: float) -> void:
 		active_cluster.handle_input(delta)
 		active_cluster.tick(delta)
 		next_cluster.tick(delta)
+		if input.rotate_left:
+			_drop_enemy_gem()
 
 func _try_debug_attack() -> void:
 	if !debug_attack_enabled:

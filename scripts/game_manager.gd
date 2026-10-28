@@ -174,8 +174,8 @@ func _simulate_frame() -> void:
 				player.board.input = player.sim_input
 			player.board.tick(LOCKSTEP_DELTA)
 			# online one-shots are cleared when packed (see _on_local_input), not here.
-			if !_is_online_multiplayer() and player.is_local():
-				player.input.clear_one_shots()
+			#if !_is_online_multiplayer() and player.is_local():
+			#	player.input.clear_one_shots()
 		if _is_online_multiplayer() and OS.is_debug_build() and current_frame % CHECKSUM_INTERVAL_FRAMES == 0:
 			_print_checksum()
 	player_input_packets_by_frame.erase(current_frame)
@@ -253,7 +253,7 @@ func _on_network_input(sender_id: int, frame: int, packet: Dictionary) -> void:
 
 func _frame_has_packet_ready(frame: int) -> bool:
 	if _is_singleplayer():
-		return player_input_packets_by_frame.has(frame)
+		return true
 	if !player_input_packets_by_frame.has(frame):
 		return false
 	var inputs: Dictionary = player_input_packets_by_frame[frame]
@@ -314,6 +314,7 @@ func _prep_input_buffer() -> void:
 func _on_game_ended() -> void:
 	if layer_bg:
 		layer_bg.queue_free()
+	Transition.change_scene("res://scenes/menus/lobby_room.tscn")
 
 func _on_seed_received(_generated_seed: int) -> void:
 	generated_seed = _generated_seed
