@@ -10,7 +10,7 @@ const LEVEL_DATA: Resource = preload("res://scripts/levels.gd")
 const TIMEOUT_TIME: float = 3.0
 const INPUT_DELAY_FRAMES: int = 10
 const LOCKSTEP_DELTA: float = 1.0 / 60.0
-const CHECKSUM_INTERVAL_FRAMES: int = 60
+const CHECKSUM_INTERVAL_FRAMES: int = 120
 
 var generated_seed: int = 0
 var slot_assignments: PackedInt64Array
@@ -209,7 +209,12 @@ func _print_checksum() -> void: #written by Cryptizism
 	var hashes: Array[int] = []
 	for player in players:
 		hashes.append(player.board.get_hash())
-	print("CHECKSUM frame=%d hashes=%s" % [current_frame, hashes])
+	var matches: bool = true
+	for _hash in hashes:
+		if _hash != hashes[0]:
+			matches = false
+			break
+	print("CHECKSUM frame=%d hashes=%s matches=%s" % [current_frame, hashes, matches])
 
 func _update_local_input() -> void:
 	for player in players:

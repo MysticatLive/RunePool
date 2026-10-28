@@ -60,8 +60,6 @@ func clear() -> void:
 	back = false
 
 func to_packet() -> Dictionary:
-	if rotate_left or rotate_right:
-		print("rotation packet created.")
 	return {
 		"move_up": move_up,
 		"move_down": move_down,
