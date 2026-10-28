@@ -111,8 +111,6 @@ func _physics_process(delta: float) -> void:
 	#TODO: Game pause functionality
 	#if state == State.PAUSED:
 		#return
-	#if _is_online_multiplayer():
-	#	_broadcast_local_input_packet()
 	var simulated_frames: int = _simulate_until_caught_up_to_current_frame(4, delta)
 	_attempt_timeout(simulated_frames, delta)
 
@@ -181,30 +179,6 @@ func _simulate_frame() -> void:
 	player_input_packets_by_frame.erase(current_frame)
 	current_frame += 1
 
-#func _simulate_frame() -> void:
-#	if _is_singleplayer():
-#		var player = players[0]
-#		player.board.input = player.input
-#		player.board.tick(LOCKSTEP_DELTA)
-#		player.input.clear_one_shots()
-#	else:
-#		for player in players:
-#			if _is_online_multiplayer():
-#				# every board (local included) plays this frame from the buffered packet,
-#				# so both machines apply the same inputs on the same frame so it's more deterministic
-#				player.sim_input.update_network(player_input_packets_by_frame[current_frame][player.slot_number])
-#				player.board.input = player.sim_input
-#			else:
-#				player.board.input = player.input
-#			player.board.tick(LOCKSTEP_DELTA)
-#			# online one-shots are cleared when packed (see _on_local_input), not here.
-#			if !_is_online_multiplayer() and player.is_local():
-#				player.input.clear_one_shots()
-#		if _is_online_multiplayer() and OS.is_debug_build() and current_frame % CHECKSUM_INTERVAL_FRAMES == 0:
-#			_print_checksum()
-#	player_input_packets_by_frame.erase(current_frame)
-#	current_frame += 1
-
 func _print_checksum() -> void: #written by Cryptizism
 	var hashes: Array[int] = []
 	for player in players:
@@ -223,24 +197,6 @@ func _update_local_input() -> void:
 		#online there's one local player per machine, so always read player 1's control mappings
 		var controls_id: int = 0 if _is_online_multiplayer() else player.slot_number
 		player.input.update_local(controls_id)
-		#_on_local_input(player)
-
-#func _on_local_input(player: Player) -> void:
-#	var target_frame: int = current_frame + INPUT_DELAY_FRAMES
-#	for frame in range(current_frame, target_frame + 1):
-#		if !player_input_packets_by_frame.has(frame):
-#			player_input_packets_by_frame[frame] = {}
-#		if player_input_packets_by_frame[frame].has(player.slot_number):
-#			continue
-#		var packet: Dictionary = player.input.to_packet()
-#		if _is_online_multiplayer():
-#			player.input.clear_one_shots()
-#		player_input_packets_by_frame[frame][player.slot_number] = packet
-#		if _is_online_multiplayer():
-#			for opponent in players:
-#				if opponent.is_local():
-#					continue
-#				NetworkManager.send_input(opponent.peer_id, frame, packet)
 
 func _on_network_input(sender_id: int, frame: int, packet: Dictionary) -> void:
 	var slot_number: int = _get_peer_slot_number(sender_id)
